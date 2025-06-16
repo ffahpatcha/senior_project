@@ -7,7 +7,7 @@ import tiktoken
 
 def get_together_llm(model: str, temperature: float = 0.3, max_tokens: int = 1024, **kwargs):
     """
-    Initializes and returns a Together LLM instance, optionally configured for structured output.
+    Initializes and returns a Together LLM instance, optionally configured for structured output
     """
     llm = ChatTogether(
         model=TOGETHER_MODEL,
