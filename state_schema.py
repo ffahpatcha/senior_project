@@ -17,7 +17,10 @@ class ClassificationResult(BaseModel):
     category_level_1: Optional[List[CategoryScore]] = Field(None, description="หมวดหมู่หลักพร้อม confidence")
     category_level_2: Optional[List[SubcategoryScore]] = Field(None, description="หมวดย่อยพร้อม confidence")
     clarification_needed: Optional[bool] = None
+    clarification_reason: Optional[str] = None  
+    
     out_of_domain: Optional[bool] = None
+    out_of_domain_reason: Optional[str] = None
 
     def is_terminal(self) -> bool:
         return self.out_of_domain is True or self.clarification_needed is True
