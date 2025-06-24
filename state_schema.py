@@ -31,9 +31,10 @@ class AgentState(BaseModel):
     user_query: str
     classification_result: ClassificationResult = Field(default_factory=ClassificationResult)
     latency: Optional[Dict[str, float]] = None
+    response: Optional[str] = None
+    previous_turns: List[str] = Field(default_factory=list)
     def should_terminate(self) -> bool:
         return self.classification_result.is_terminal()
-    response: Optional[str] = None
 
 #Schema แยกสำหรับแต่ละขั้นตอนของ LLM structured output
 class OutOfDomainResult(BaseModel):
