@@ -29,11 +29,11 @@ def route(state: AgentState) -> str:
     if is_clarification_needed(state):
         return "clarification_response_agent"
     
-    if has_user_selected_category(state):
-        return "retrieval_context_agent"
+    # if has_user_selected_category(state):
+    #     return "retrieval_context_agent"
     
-    if has_classifier_category(state):
-        return "clarification_response_agent"
+    # if has_classifier_category(state):
+    #     return "clarification_response_agent"
     
     # fallback case: ไม่มี category ที่มั่นใจพอ → hybrid search แบบไม่ filter
     return "retrieval_context_agent"
